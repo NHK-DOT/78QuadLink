@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "id": "a1-gazebo-classic",
+  "description": "Unitree A1 ROS2 effort adapter; prepare-robot generates the model and validates fixed12 mapping before launch.",
+  "board_abi": "go1sim-board-v1-8x1024",
+  "payload_schema": "unitree-fixed12-v2+OBS1",
+  "backend_cli": "go1relay-flags-v1",
+  "board_env": "GO1SIM_STATE_BOARD",
+  "clear_env": [
+    "GO1SIM_RELAY_MODE",
+    "GO1SIM_GROUP_MODE",
+    "GO1SIM_SHARED_STATE",
+    "GO1SIM_SHARED_IMU",
+    "GO1SIM_SHARED_ODOM"
+  ],
+  "profiles": {
+    "motor": {
+      "GO1SIM_SHARED_STATE": "1"
+    },
+    "motor-imu": {
+      "GO1SIM_SHARED_STATE": "1",
+      "GO1SIM_SHARED_IMU": "1"
+    }
+  }
+}

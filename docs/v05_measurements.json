@@ -1,0 +1,109 @@
+{
+  "warmup_seconds": 10,
+  "sample_seconds": 45,
+  "scope": "all owned process groups plus simkit parent; headless fixed stand; one logical CPU = 100%",
+  "runs": [
+    {
+      "directory": "20260919-042028-v05-a1-legacy-1",
+      "scenario": "v05-a1-legacy-1",
+      "samples": 45,
+      "cpu_all_groups": 98.46500651111111,
+      "rss_sum_mib": 540.7332465277777,
+      "rtf": 1.0,
+      "modes": {
+        "group": "",
+        "profile": "full",
+        "relay": "",
+        "shared_imu": "",
+        "shared_motor": "",
+        "shared_odom": ""
+      },
+      "end_height_m": 0.332758665707344
+    },
+    {
+      "directory": "20260919-042357-v05-a1-legacy-2",
+      "scenario": "v05-a1-legacy-2",
+      "samples": 45,
+      "cpu_all_groups": 99.39969813333333,
+      "rss_sum_mib": 540.4283854166666,
+      "rtf": 1.0,
+      "modes": {
+        "group": "",
+        "profile": "full",
+        "relay": "",
+        "shared_imu": "",
+        "shared_motor": "",
+        "shared_odom": ""
+      },
+      "end_height_m": 0.33314045388277974
+    },
+    {
+      "directory": "20260919-042140-v05-a1-shared-1",
+      "scenario": "v05-a1-shared-1",
+      "samples": 45,
+      "cpu_all_groups": 41.51128788888889,
+      "rss_sum_mib": 520.5874131944445,
+      "rtf": 1.0,
+      "modes": {
+        "group": "",
+        "profile": "full",
+        "relay": "",
+        "shared_imu": "1",
+        "shared_motor": "1",
+        "shared_odom": ""
+      },
+      "end_height_m": 0.33320216889521914
+    },
+    {
+      "directory": "20260919-042250-v05-a1-shared-2",
+      "scenario": "v05-a1-shared-2",
+      "samples": 45,
+      "cpu_all_groups": 42.39936693333333,
+      "rss_sum_mib": 519.8035590277777,
+      "rtf": 1.0,
+      "modes": {
+        "group": "",
+        "profile": "full",
+        "relay": "",
+        "shared_imu": "1",
+        "shared_motor": "1",
+        "shared_odom": ""
+      },
+      "end_height_m": 0.3328089808887818
+    },
+    {
+      "directory": "20260919-042509-v05-go1-legacy",
+      "scenario": "v05-go1-legacy",
+      "samples": 45,
+      "cpu_all_groups": 100.10925613333333,
+      "rss_sum_mib": 595.1631076388888,
+      "rtf": 1.0,
+      "modes": {
+        "group": "",
+        "profile": "full",
+        "relay": "",
+        "shared_imu": "",
+        "shared_motor": "",
+        "shared_odom": ""
+      },
+      "end_height_m": 0.3567495779645827
+    },
+    {
+      "directory": "20260919-042620-v05-go1-shared",
+      "scenario": "v05-go1-shared",
+      "samples": 45,
+      "cpu_all_groups": 43.57739973333333,
+      "rss_sum_mib": 573.0399305555555,
+      "rtf": 1.0,
+      "modes": {
+        "group": "",
+        "profile": "full",
+        "relay": "",
+        "shared_imu": "1",
+        "shared_motor": "1",
+        "shared_odom": ""
+      },
+      "end_height_m": 0.35392186712992696
+    }
+  ]
+}
