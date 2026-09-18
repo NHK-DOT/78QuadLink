@@ -1,5 +1,5 @@
 {
   "repository": "https://github.com/NHK-DOT/go1sim.git",
-  "commit": "18da18802376994bd573d0bf61c23a9a506d889d",
-  "version": "v0.5 integration with Go2 experimental validation"
+  "commit": "8723c4c7dd26a6d94b33b1c209a714ea14579fd0",
+  "version": "v0.5.1"
 }

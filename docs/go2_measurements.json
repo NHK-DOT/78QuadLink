@@ -1,5 +1,5 @@
 {
-  "status": "not validated; no performance claim",
+  "status": "passed: both motion paths, observations and four performance runs",
   "physics_blocks_preserved": 60,
   "joints_preserved": 41,
   "runs": [
@@ -71,5 +71,167 @@
         "pass": false
       }
     }
-  ]
+  ],
+  "tuned_motion": [
+    {
+      "scenario": "20260919-053040-v05-go2-motion",
+      "motion": {
+        "before": {
+          "x": 0.20703398203703424,
+          "y": 0.05864756163533999,
+          "z": 0.3507980521227607,
+          "qx": 2.4953349043835894e-05,
+          "qy": -5.4212155140160635e-05,
+          "qz": 0.33224305116083874,
+          "qw": 0.9431938037294928
+        },
+        "moving": {
+          "x": 1.8614272908177925,
+          "y": 1.192392894595858,
+          "z": 0.3427108464628958,
+          "qx": -0.0664713997072951,
+          "qy": -0.07065569647054304,
+          "qz": 0.32171236473628656,
+          "qw": 0.9418548083186719
+        },
+        "after": {
+          "x": 1.568170881369594,
+          "y": 0.9740668414021331,
+          "z": 0.35092222402694717,
+          "qx": -7.779264630319959e-05,
+          "qy": -0.00019461540275045444,
+          "qz": 0.3073689272743385,
+          "qw": 0.9515904048588194
+        },
+        "distance_m": 2.0055911099095702,
+        "trajectory_samples": 72,
+        "min_height_m": 0.3125274253210526,
+        "max_tilt_metric": 0.10201282168579304,
+        "pass": true
+      }
+    },
+    {
+      "scenario": "20260919-053205-v05-go2-legacy-motion",
+      "motion": {
+        "before": {
+          "x": 0.29743645530613516,
+          "y": -0.046973678552088755,
+          "z": 0.35092585723982894,
+          "qx": -9.167221847312185e-05,
+          "qy": 0.00023831373432871706,
+          "qz": 0.4562933973055804,
+          "qw": 0.8898293490204175
+        },
+        "moving": {
+          "x": 2.013132201200077,
+          "y": 1.9607718135986967,
+          "z": 0.35746558298412323,
+          "qx": -0.0024785555120926763,
+          "qy": -0.03299984872111319,
+          "qz": 0.4573315261939417,
+          "qw": 0.8886803372957437
+        },
+        "after": {
+          "x": 1.8464183660860678,
+          "y": 1.7127920777564216,
+          "z": 0.35006708460766395,
+          "qx": 0.020378097592242926,
+          "qy": -0.0018181141045857513,
+          "qz": 0.5370188821336666,
+          "qw": 0.8433220902072533
+        },
+        "distance_m": 2.6409569958123833,
+        "trajectory_samples": 72,
+        "min_height_m": 0.3434661642981407,
+        "max_tilt_metric": 0.11303748707456389,
+        "pass": true
+      }
+    }
+  ],
+  "observations": {
+    "scenario": "20260919-053358-v05-go2-observations",
+    "imu_matched": 64610,
+    "tf_matched": 6585,
+    "mismatches": 0,
+    "invalid": 0
+  },
+  "performance": {
+    "warmup_seconds": 10,
+    "sample_seconds": 45,
+    "scope": "all owned process groups plus simkit wrapper; headless fixed stand; one logical CPU = 100%",
+    "runs": [
+      {
+        "directory": "20260919-053507-v05-go2-legacy-1",
+        "scenario": "v05-go2-legacy-1",
+        "samples": 45,
+        "cpu_all_groups": 96.04328177777778,
+        "rss_sum_mib": 538.3111111111111,
+        "rtf": 1.0,
+        "modes": {
+          "group": "",
+          "profile": "full",
+          "relay": "",
+          "shared_imu": "",
+          "shared_motor": "",
+          "shared_odom": ""
+        },
+        "end_height_m": 0.3531339644548915
+      },
+      {
+        "directory": "20260919-053839-v05-go2-legacy-2",
+        "scenario": "v05-go2-legacy-2",
+        "samples": 45,
+        "cpu_all_groups": 96.33241833333334,
+        "rss_sum_mib": 538.1868923611111,
+        "rtf": 1.0,
+        "modes": {
+          "group": "",
+          "profile": "full",
+          "relay": "",
+          "shared_imu": "",
+          "shared_motor": "",
+          "shared_odom": ""
+        },
+        "end_height_m": 0.35679042894689184
+      },
+      {
+        "directory": "20260919-053621-v05-go2-shared-1",
+        "scenario": "v05-go2-shared-1",
+        "samples": 45,
+        "cpu_all_groups": 39.6884452,
+        "rss_sum_mib": 517.0044270833333,
+        "rtf": 1.0,
+        "modes": {
+          "group": "",
+          "profile": "full",
+          "relay": "",
+          "shared_imu": "1",
+          "shared_motor": "1",
+          "shared_odom": ""
+        },
+        "end_height_m": 0.35317051030059127
+      },
+      {
+        "directory": "20260919-053730-v05-go2-shared-2",
+        "scenario": "v05-go2-shared-2",
+        "samples": 45,
+        "cpu_all_groups": 39.444327799999996,
+        "rss_sum_mib": 516.6469618055555,
+        "rtf": 1.0,
+        "modes": {
+          "group": "",
+          "profile": "full",
+          "relay": "",
+          "shared_imu": "1",
+          "shared_motor": "1",
+          "shared_odom": ""
+        },
+        "end_height_m": 0.3567717744940826
+      }
+    ],
+    "legacy_mean_cpu": 96.18785005555556,
+    "shared_mean_cpu": 39.56638649999999,
+    "cpu_reduction_percent": 58.86550486662557,
+    "rss_reduction_mib": 21.42330729166656
+  }
 }

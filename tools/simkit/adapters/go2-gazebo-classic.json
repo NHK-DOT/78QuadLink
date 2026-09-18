@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "id": "go2-gazebo-classic",
-  "description": "EXPERIMENTAL Unitree Go2: official model parsing succeeds, but legacy/shared locomotion checks failed. Not a validated robot profile.",
+  "description": "Unitree Go2 ROS2 effort adapter; requires v0.5.1 Go2 simulation PD gains. Native model, fixed12 motor and IMU validation passed.",
   "board_abi": "go1sim-board-v1-8x1024",
   "payload_schema": "unitree-fixed12-v2+OBS1",
   "backend_cli": "go1relay-flags-v1",

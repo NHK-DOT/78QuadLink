@@ -15,7 +15,7 @@ import (
 	"unsafe"
 )
 
-const toolkitVersion = "0.5.0"
+const toolkitVersion = "0.5.1"
 
 func main() {
 	runtime.GOMAXPROCS(1)

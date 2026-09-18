@@ -40,5 +40,5 @@ ctest --test-dir "$quad_root/build" --output-on-failure
 cmake --install "$quad_root/build"
 ln -sfn "$quad_root/scripts/quadlink78" "$quad_link"
 "$quad_root/artifacts/bin/simkit" doctor -adapter "$quad_root/tools/simkit/adapters/a1-gazebo-classic.json" -backend "$quad_root/artifacts/bin/go1relay" > "$quad_root/artifacts/deployment-doctor.json"
-echo "78QuadLink v0.5 ready: $quad_link"
+echo "78QuadLink v0.5.1 ready: $quad_link"
 echo 'Run quadlink78 a1 --gui or quadlink78 go1 --gui after full deployment.'

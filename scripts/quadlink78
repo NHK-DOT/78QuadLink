@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 set -eo pipefail
 quad_root="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
-if [[ "${1:-}" == go2 && "${SIM78_EXPERIMENTAL_GO2:-0}" != 1 ]]; then
- echo 'Go2 is experimental: locomotion validation has not passed. See docs/go2_compatibility.md; set SIM78_EXPERIMENTAL_GO2=1 only for development tests.' >&2
- exit 2
-fi
 case "${1:-help}" in
  help|-h|--help)
-  echo '78QuadLink v0.5: quadlink78 go1|a1|go2 [--gui] [--dds|--legacy]'
+  echo '78QuadLink v0.5.1: quadlink78 go1|a1|go2 [--gui] [--dds|--legacy]'
   echo 'Tools: version, doctor, inspect, record, verify, analyze, prepare-robot (COMMAND -h)'
   exit 0 ;;
  go1|a1|go2)

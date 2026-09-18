@@ -2,7 +2,7 @@
 # Produce a relocatable Linux toolkit; does not build/source ROS or edit the host.
 set -euo pipefail
 kit_source="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-kit_output="${1:-${kit_source}/../../artifacts/78quadlink-tools-v0.5}"
+kit_output="${1:-${kit_source}/../../artifacts/78quadlink-tools-v0.5.1}"
 kit_go="${GO_BIN:-go}"
 if [[ -e "${kit_output}" ]]; then
   echo "Refusing to overwrite existing output: ${kit_output}" >&2

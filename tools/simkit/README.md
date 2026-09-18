@@ -1,4 +1,4 @@
-# 78QuadLink / simkit — v0.5 Go 工具包
+# 78QuadLink / simkit — v0.5.1 Go 工具包
 
 目标是可选小工具 + 机器人适配层，不是新仿真平台。独立 Go module，标准库依赖，
 Linux 上构建；当前实际验证为 Ubuntu 22.04 amd64、Go 1.18。不需要 ROS 来编译或分析归档。
@@ -16,7 +16,7 @@ Linux 上构建；当前实际验证为 Ubuntu 22.04 amd64、Go 1.18。不需要
   数量/大小；按分区统计数据量、提交计数间隔和重复/回退。内存不随归档长度增长。
   无需后端、ROS、Gazebo、机器人模型；不解析电机语义，不推断控制延迟。
 
-提供已验证的 Go1 与 A1 Gazebo Classic adapter，以及未通过运动检查的 Go2 实验 adapter。A1 使用真实官方模型及独立运动学控制程序。
+提供已验证的 Go1、A1 与 Go2 Gazebo Classic adapter；Go2 需配合 v0.5.1 专用仿真增益。A1 使用真实官方模型及独立运动学控制程序。
 JSON 抽离的是选择配置与集成合约，不能靠改 robot 名称适配另一种电机协议。
 Go1 电机数据面仍是十二关节格式；现有 C++ source/consumer adapter 仍必需。
 独立工具包不安装 ROS/Gazebo 或常驻服务；完整部署入口为仓库根目录 `./deploy.sh`。
@@ -86,6 +86,6 @@ REPO=/absolute/path/to/78QuadLink/external/go1sim
 3. 添加 JSON（schema=1），声明 board ABI、payload schema、环境变量和可选 profile。
 4. 进行原路径/新路径同输入功能对照，最后测性能，再声明该机器人受支持。
 
-v0.5 已验证 Go1/A1 的固定十二关节适配。Go2 已试测但运动验证未通过；B2、任意关节数和其他引擎未验证。
+v0.5 已验证 Go1/A1 的固定十二关节适配。Go2 已在 v0.5.1 通过运动与观测验证；B2、任意关节数和其他引擎未验证。
 独立 tools 包不包含模型；prepare-robot 需用 -repo 指向完整源码/完整发布包。
 完整功能/性能及部署验证见 [v0.5 报告](https://github.com/NHK-DOT/78QuadLink/blob/v0.5/docs/v05_release.md)。

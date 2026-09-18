@@ -1,6 +1,6 @@
-<p align="center"><img src="assets/quadlink78.svg" width="144" alt="78QuadLink"></p>
+[黑白像素 U / 闪电 ICO 图标](assets/quadlink78.ico)
 
-# 78QuadLink · v0.5
+# 78QuadLink · v0.5.1
 
 **78big 的四足仿真共享状态库与 Go 工具包。** 将高频关节/IMU 数据接入固定布局共享内存，把模型适配、检查、按需录制、压缩和分析交给 Go。
 
@@ -8,14 +8,17 @@
 
 ## 实测优化
 
-同一台机器、同一机器人场景、GUI 关闭、固定站立；预热 10 秒，每轮采样 45 秒，计算全部被测进程组及 Go 包装进程。CPU 100% 表示一个逻辑核。
+Go1/A1 数字来自 v0.5，Go2 来自 v0.5.1。各自使用同一台机器、同一机器人场景、GUI 关闭、固定站立；预热 10 秒，每轮采样 45 秒，计算全部被测进程组及 Go 包装进程。CPU 100% 表示一个逻辑核。
 
 | 模型 | 原十二路 CPU | 共享电机 + IMU CPU | CPU 降幅 | RSS 减少 | 实时倍率 |
 |---|---:|---:|---:|---:|---:|
 | Unitree A1（两轮均值） | 98.93% | 41.96% | **57.6%** | 20.4 MiB | 1.0 |
 | Unitree Go1（一轮） | 100.11% | 43.58% | **56.5%** | 22.1 MiB | 1.0 |
+| Unitree Go2（v0.5.1，两轮均值） | 96.19% | 39.57% | **58.9%** | 21.4 MiB | 1.0 |
 
 [各轮数据](docs/v05_measurements.json) · [兼容性与验证报告](docs/v05_release.md) · [历史性能](docs/v043_performance.md) · [现有行业方案](docs/quadruped_optimization_landscape.md)
+
+**v0.5.1 新增 Go2 验证：** 修复原仿真关节增益过大导致的失稳；共享/十二路均通过 30 秒连续行走。IMU 匹配 64,610 次、TF 6,585 次，无不一致；[原因与证据](docs/go2_tuning_v051.md)。
 
 A1 使用宇树官方 A1 模型和 A1 运动学，启动前适配 ROS 1 模型接口，保留物理参数。A1 的 IMU 同时间戳核对 43,215 次、TF 边核对 4,386 次，无不一致；两种狗均通过站立→短时小跑→站立检查（前进约 0.82/0.83 m）。这不是长期复杂地形或真机认证，也不意味着控制延迟、训练速度、功耗下降同样比例。
 
@@ -26,10 +29,11 @@ A1 使用宇树官方 A1 模型和 A1 运动学，启动前适配 ROS 1 模型�
 完整演示验证环境：**Ubuntu 22.04 / ROS 2 Humble / Gazebo Classic / Linux amd64**。首次部署需要网络；缺少系统依赖时脚本通过 sudo 安装，已有依赖则跳过。
 
 ```bash
-git clone --branch v0.5 --depth 1 https://github.com/NHK-DOT/78QuadLink.git
+git clone --branch v0.5.1 --depth 1 https://github.com/NHK-DOT/78QuadLink.git
 cd 78QuadLink
 ./deploy.sh
-~/.local/bin/quadlink78 a1 --gui
+~/.local/bin/quadlink78 go2 --gui
+# 或 ~/.local/bin/quadlink78 a1 --gui
 # 或 ~/.local/bin/quadlink78 go1 --gui
 ```
 
@@ -76,7 +80,7 @@ ctest --test-dir build --output-on-failure
 
 ## 兼容范围与目录
 
-当前适配范围限**宇树系四足**：已实测 **Go1、A1**，**Go2 已试测、运动验证未通过**（[实验报告](docs/go2_compatibility.md)）。B2、其他品牌、MuJoCo、Isaac 尚未在这套插件上实测。核心共享板与机器人无关，现成电机协议固定十二关节，适配 JSON 不能替代真实仿真器/控制器读写接口。ROS 2 仍负责其他 topic、TF 和集成；不是 MQTT/CAN 总线，也没有消除数据读写成本。
+当前适配范围限**宇树系四足**：已实测 **Go1、A1、Go2**。Go2 在 v0.5.1 修正专用仿真增益后，通过两路径 30 秒连续行走及 IMU/TF 核对（[修复报告](docs/go2_tuning_v051.md)）。B2、其他品牌、MuJoCo、Isaac 尚未在这套插件上实测。核心共享板与机器人无关，现成电机协议固定十二关节，适配 JSON 不能替代真实仿真器/控制器读写接口。ROS 2 仍负责其他 topic、TF 和集成；不是 MQTT/CAN 总线，也没有消除数据读写成本。
 
 | 目录 | 内容 |
 |---|---|
@@ -85,13 +89,13 @@ ctest --test-dir build --output-on-failure
 | `tools/go_relay` | 板初始化、检查、录制与可选 UDS relay |
 | `external/go1sim` | 部署时拉取的固定提交集成，Git 忽略 |
 | `testdata` | 官方 A1 URDF 测试样本及原许可证 |
-| `assets` | SVG / PNG / 多尺寸 ICO 图标 |
+| `assets` | 16 / 32 / 48 px 黑白像素 ICO 图标 |
 | `docs` | ABI、实测结果、历史对比与来源 |
 
 C++ 继续承担 Gazebo/ros2_control 边界与控制算法；不为语言占比改写热路径。共享 odom 实验未证明进一步收益，默认关闭；TF 保持正常 ROS 消费兼容。
 
 ## 发布与许可
 
-[GitHub v0.5 Release](https://github.com/NHK-DOT/78QuadLink/releases/tag/v0.5) 提供核心源码、Linux amd64 工具包、图标与 SHA256SUMS。完整仿真通过固定提交依赖部署，首次安装仍需网络，不把工具包称为离线 ROS 安装包。
+[GitHub v0.5.1 Release](https://github.com/NHK-DOT/78QuadLink/releases/tag/v0.5.1) 提供核心源码、Linux amd64 工具包、图标与 SHA256SUMS。完整仿真通过固定提交依赖部署，首次安装仍需网络，不把工具包称为离线 ROS 安装包。
 
 项目代码采用 [BSD-3-Clause](LICENSE)；第三方模型样本与外部集成遵循各自原许可，详见 [THIRD_PARTY.md](THIRD_PARTY.md)。

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(quadlink78 VERSION 0.5.0 LANGUAGES CXX)
+project(quadlink78 VERSION 0.5.1 LANGUAGES CXX)
 include(GNUInstallDirs)
 add_library(quadlink78 INTERFACE)
 add_library(quadlink78::board ALIAS quadlink78)

@@ -16,3 +16,10 @@ NHK-DOT/go1sim. They preserve their ABI names for source compatibility.
 No Unitree motion-controller sources or mesh assets are copied into this core.
 
 `testdata/go2.urdf` is from the same commit, original path `robots/go2_description/urdf/go2_description.urdf`, with the same Unitree license.
+
+## v0.5.1 icon
+
+The pixel U silhouette is adapted from https://www.unitree.com/unitree-favicon.svg
+(retrieved 2026-09-19), with a lightning addition. Unitree trademarks remain
+with their owner; the project code license does not grant rights to those marks.
+Only the ICO icon is distributed in the current assets directory.

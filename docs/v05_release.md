@@ -1,5 +1,7 @@
 # 78QuadLink v0.5：Go1 + A1 兼容性与部署（Go2 实验未通过）
 
+> 此页保留 v0.5 验证记录；Go2 后续已在 [v0.5.1](go2_tuning_v051.md) 修复并通过验证。
+
 78QuadLink（78big 风格的四足共享状态连接工具）由 go1sim 演进而来。
 它是可选优化插件和外置工具包，不是重写 Gazebo、ROS 2 或所有运动控制器。
 独立库发布在 [NHK-DOT/78QuadLink](https://github.com/NHK-DOT/78QuadLink)，
