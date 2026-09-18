@@ -1,4 +1,6 @@
-[黑白像素 U / 闪电 ICO 图标](assets/quadlink78.ico)
+<p align="center"><img src="assets/quadlink78.png" width="600" alt="78Link 像素 U 与闪电标识"></p>
+
+**简体中文** | [English](README.en.md)
 
 # 78QuadLink · v0.5.1
 
@@ -16,7 +18,7 @@ Go1/A1 数字来自 v0.5，Go2 来自 v0.5.1。各自使用同一台机器、同
 | Unitree Go1（一轮） | 100.11% | 43.58% | **56.5%** | 22.1 MiB | 1.0 |
 | Unitree Go2（v0.5.1，两轮均值） | 96.19% | 39.57% | **58.9%** | 21.4 MiB | 1.0 |
 
-[各轮数据](docs/v05_measurements.json) · [兼容性与验证报告](docs/v05_release.md) · [历史性能](docs/v043_performance.md) · [现有行业方案](docs/quadruped_optimization_landscape.md)
+[Go1/A1 数据](docs/v05_measurements.json) · [Go2 数据](docs/go2_measurements.json) · [兼容性与验证报告](docs/v05_release.md) · [历史性能](docs/v043_performance.md) · [现有行业方案](docs/quadruped_optimization_landscape.md)
 
 **v0.5.1 新增 Go2 验证：** 修复原仿真关节增益过大导致的失稳；共享/十二路均通过 30 秒连续行走。IMU 匹配 64,610 次、TF 6,585 次，无不一致；[原因与证据](docs/go2_tuning_v051.md)。
 
@@ -69,7 +71,7 @@ ctest --test-dir build --output-on-failure
 
 ## Go 的职责
 
-- 启动前：解析 A1 URDF，核对十二关节映射/限位，解析模型资源，生成 ROS 2 模型与 SHA-256 契约。
+- 启动前：解析 A1/Go2 URDF，核对十二关节映射/限位，解析模型资源，生成 ROS 2 模型与 SHA-256 契约。
 - 运行时：按 profile 创建共享板、启动进程、交接终端、传递信号、退出清理；不在每个电机帧之间转发。
 - 按需：只读检查、压缩录制、归档哈希核验、流式分析；分析无需 ROS、模型或仿真进程。
 - 旧 UDS relay 的注册、续租、转发仍作为可选后端保留；共享模式无需常驻 relay。
@@ -88,8 +90,8 @@ ctest --test-dir build --output-on-failure
 | `tools/simkit` | Go 生命周期、模型契约、归档分析与机器人配置 |
 | `tools/go_relay` | 板初始化、检查、录制与可选 UDS relay |
 | `external/go1sim` | 部署时拉取的固定提交集成，Git 忽略 |
-| `testdata` | 官方 A1 URDF 测试样本及原许可证 |
-| `assets` | 16 / 32 / 48 px 黑白像素 ICO 图标 |
+| `testdata` | 官方 A1/Go2 URDF 测试样本及原许可证 |
+| `assets` | 透明背景 PNG 横版标识与 16 / 32 / 48 px ICO 图标 |
 | `docs` | ABI、实测结果、历史对比与来源 |
 
 C++ 继续承担 Gazebo/ros2_control 边界与控制算法；不为语言占比改写热路径。共享 odom 实验未证明进一步收益，默认关闭；TF 保持正常 ROS 消费兼容。
