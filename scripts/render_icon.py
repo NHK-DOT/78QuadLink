@@ -61,25 +61,33 @@ frames = [base.resize((n,n), nearest) for n in (16,32,48)]
 frames[-1].save(root/'assets/quadlink78.ico', format='ICO', sizes=[(16,16),(32,32),(48,48)],
                append_images=frames[:-1], bitmap_format='bmp')
 
-# Hand-drawn 5x7 pixel lettering; no external font and no antialiasing.
+# Original lettering inspired by Unitree's bold, forward-slanted geometric
+# wordmark (not an extracted or redistributed proprietary font).
+# Keep the requested "78Link" spelling and a hard-edged pixel grid.
 glyphs = {
- '7': ['#####','....#','...#.','..#..','.#...','.#...','.#...'],
- '8': ['.###.','#...#','#...#','.###.','#...#','#...#','.###.'],
- 'L': ['#....','#....','#....','#....','#....','#....','#####'],
- 'i': ['.#.','...','##.','.#.','.#.','.#.','###'],
- 'n': ['.....','.....','####.','#...#','#...#','#...#','#...#'],
- 'k': ['#....','#....','#..#.','#.#..','##...','#.#..','#..#.'],
+ '7': ['#########','#########','#########','......###','.....###.','....###..','...###...','..###....','.###.....','###......','###......'],
+ '8': ['.#######.','#########','###...###','###...###','.#######.','.#######.','###...###','###...###','###...###','#########','.#######.'],
+ 'L': ['###......']*8 + ['#########']*3,
+ 'i': ['###','###','...','...'] + ['###']*7,
+ 'n': ['.........']*3 + ['########.','#########'] + ['###...###']*6,
+ 'k': ['###......']*3 + ['###...###','###..###.','###.###..','######...','#######..','###.###..','###..###.','###...###'],
 }
-text_width = sum(len(glyphs[c][0])+1 for c in '78Link')-1
-text = Image.new('RGBA', (text_width,7), (0,0,0,0))
+text_width = sum(len(glyphs[c][0])+2 for c in '78Link')-2
+upright = Image.new('RGBA', (text_width,11), (0,0,0,0))
 x = 0
 for c in '78Link':
     for y, row in enumerate(glyphs[c]):
         for dx, pixel in enumerate(row):
             if pixel == '#':
-                text.putpixel((x+dx,y), (0,0,0,255))
-    x += len(glyphs[c][0])+1
-text = text.resize((text.width*2,14), nearest)
+                upright.putpixel((x+dx,y), (0,0,0,255))
+    x += len(glyphs[c][0])+2
+# About 16 degrees of forward lean, matching the direction of the U.
+text = Image.new('RGBA', (upright.width+3,upright.height),(0,0,0,0))
+for y in range(upright.height):
+    shift = round((upright.height-1-y)*.28)
+    for x in range(upright.width):
+        text.putpixel((x+shift,y),upright.getpixel((x,y)))
+text = text.resize((text.width*2,text.height*2), nearest)
 symbol = base.crop(base.getbbox())
 logo = Image.new('RGBA', (symbol.width+6+text.width,symbol.height),(0,0,0,0))
 logo.alpha_composite(symbol,(0,0))

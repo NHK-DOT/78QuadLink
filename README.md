@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/quadlink78.png" width="600" alt="78Link 像素 U 与闪电标识"></p>
+<p align="center"><img src="assets/quadlink78.png" width="624" alt="78Link 像素 U 与闪电标识"></p>
 
 **简体中文** | [English](README.en.md)
 

@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/quadlink78.png" width="600" alt="78Link pixel U and lightning logo"></p>
+<p align="center"><img src="assets/quadlink78.png" width="624" alt="78Link pixel U and lightning logo"></p>
 
 [简体中文](README.md) | **English**
 
