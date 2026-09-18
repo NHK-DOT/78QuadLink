@@ -22,5 +22,5 @@ No Unitree motion-controller sources or mesh assets are copied into this core.
 The pixel U silhouette is adapted from https://www.unitree.com/unitree-favicon.svg
 (retrieved 2026-09-19), with a lightning addition. Unitree trademarks remain
 with their owner; the project code license does not grant rights to those marks.
-The current assets directory contains a transparent PNG wordmark with original
+The current assets directory contains a white-backed PNG wordmark with original
 pixel lettering and an ICO symbol.

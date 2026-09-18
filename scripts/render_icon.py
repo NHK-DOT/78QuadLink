@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render a transparent pixel ICO and a U/lightning + 78Link PNG wordmark."""
+"""Render a white-backed pixel ICO and a padded U/lightning + 78Link PNG wordmark."""
 from pathlib import Path
 from PIL import Image
 
@@ -57,7 +57,9 @@ for y, start, end in bolt:
     for x in range(start-1, end):
         base.putpixel((x,y), (0,0,0,255))
 nearest = getattr(Image, 'Resampling', Image).NEAREST
-frames = [base.resize((n,n), nearest) for n in (16,32,48)]
+icon = Image.new('RGBA', (32,32), 'white')
+icon.alpha_composite(base.resize((28,28),nearest),(2,2))
+frames = [icon.resize((n,n), nearest) for n in (16,32,48)]
 frames[-1].save(root/'assets/quadlink78.ico', format='ICO', sizes=[(16,16),(32,32),(48,48)],
                append_images=frames[:-1], bitmap_format='bmp')
 
@@ -93,4 +95,6 @@ logo = Image.new('RGBA', (symbol.width+6+text.width,symbol.height),(0,0,0,0))
 logo.alpha_composite(symbol,(0,0))
 logo.alpha_composite(text,(symbol.width+6,(symbol.height-text.height)//2))
 logo = logo.crop(logo.getbbox())
-logo.resize((logo.width*6,logo.height*6),nearest).save(root/'assets/quadlink78.png')
+padded = Image.new('RGBA', (logo.width+8,logo.height+8), 'white')
+padded.alpha_composite(logo,(4,4))
+padded.convert('RGB').resize((padded.width*3,padded.height*3),nearest).save(root/'assets/quadlink78.png')

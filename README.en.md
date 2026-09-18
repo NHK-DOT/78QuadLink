@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/quadlink78.png" width="624" alt="78Link pixel U and lightning logo"></p>
+<p align="center"><img src="assets/quadlink78.png" width="420" alt="78Link pixel U and lightning logo"></p>
 
 [简体中文](README.md) | **English**
 
@@ -98,7 +98,7 @@ ROS 2 continues to provide other topics, TF, and integration. This is not MQTT o
 | `tools/go_relay` | Board initialization, inspection, recording, and optional UDS relay |
 | `external/go1sim` | Pinned integration fetched during deployment; ignored by Git |
 | `testdata` | Official A1/Go2 URDF fixtures and original license |
-| `assets` | Transparent PNG wordmark and 16/32/48 px ICO symbol |
+| `assets` | White-backed PNG wordmark and 16/32/48 px ICO symbol |
 | `docs` | ABI documentation, measurements, comparisons, and sources |
 
 C++ remains responsible for Gazebo/ros2_control interfaces and the control algorithms. Shared odometry did not demonstrate an additional performance benefit and is disabled by default. Normal ROS TF consumers remain supported. Detailed historical reports are currently in Chinese; measurement files are structured JSON.

@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/quadlink78.png" width="624" alt="78Link 像素 U 与闪电标识"></p>
+<p align="center"><img src="assets/quadlink78.png" width="420" alt="78Link 像素 U 与闪电标识"></p>
 
 **简体中文** | [English](README.en.md)
 
@@ -91,7 +91,7 @@ ctest --test-dir build --output-on-failure
 | `tools/go_relay` | 板初始化、检查、录制与可选 UDS relay |
 | `external/go1sim` | 部署时拉取的固定提交集成，Git 忽略 |
 | `testdata` | 官方 A1/Go2 URDF 测试样本及原许可证 |
-| `assets` | 透明背景 PNG 横版标识与 16 / 32 / 48 px ICO 图标 |
+| `assets` | 白底留边 PNG 横版标识与 16 / 32 / 48 px ICO 图标 |
 | `docs` | ABI、实测结果、历史对比与来源 |
 
 C++ 继续承担 Gazebo/ros2_control 边界与控制算法；不为语言占比改写热路径。共享 odom 实验未证明进一步收益，默认关闭；TF 保持正常 ROS 消费兼容。
